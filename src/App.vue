@@ -27,7 +27,7 @@ export default {
   data () {
     return {
       api_key:'e71c2b2a7d6700a136b1ccc4cb362cc1',
-      url_base:"api.openweathermap.org/data/2.5/weather?q={city name}&appid={API key}",
+      url_base:'https://api.openweathermap.org/data/2.5/',
       query:'',
       weather:{}
     }
