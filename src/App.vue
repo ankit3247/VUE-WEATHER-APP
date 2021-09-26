@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <main>
-      <div class="search-b0x">
+      <div class="search-box">
         <input type="text" class="search-box" placeholder="Search for a city..." v-model="query" @keypress="fetchWeather"/>
              </div>
              <div class="weather-wrap" v-if="typeof weather.main !='undefined'">
@@ -14,6 +14,7 @@
                  <div class="temp">{{Math.round(weather.main.temp)}}°C</div>
                  <div class="weather">{{weather.weather[0].main}}</div>
                </div>
+               
              </div>
     </main>
   </div>
@@ -65,6 +66,11 @@ export default {
   }
   
 }
+
+
+
+
+
 </script>
 
 <style>
@@ -168,5 +174,61 @@ main {
 
 </style>
 
- <!-- texting 12345678980  -->
+Vue.component('favorite', {
+    template: '#template-favorite',
+    data: function() {
+        return { };
+    },
+    props: {
+        'name': {
+            type: String,
+            default: 'favorite'
+        },
+        'value': {
+            type: Boolean,
+            default: false
+        },
+        'disabled': {
+            type: Boolean,
+            default: false
+        }
+    },
+    methods: {
+        favorite: function() {
+            if (this.disabled==true) {
+                return;
+            }
+            this.value = !this.value;
+        }
+    }
+});
+
+
+var app = new Vue({
+   el: 'body'
+});
+
+
+function AddToFavorites City(siteTitle, siteURL)  
+{  
+    if (window.sidebar)  
+    {  
+        window.sidebar.addPanel(siteTitle, siteURL,"https://api.openweathermap.org/data/2.5/");  
+    }  
+    else if(document.all)  
+    {  
+        window.external.AddFavoriteCity(siteURL, siteTitle);  
+    }  
+    else if(window.opera && window.print)  
+    {  
+        return true;  
+    }  
+}  
+
+
+
+
+<!-- test 1234 -->
+
+ <!-- texting 12345678980 -->
 
