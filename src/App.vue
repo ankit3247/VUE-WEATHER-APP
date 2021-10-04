@@ -14,17 +14,28 @@
                  <div class="temp">{{Math.round(weather.main.temp)}}°C</div>
                  <div class="weather">{{weather.weather[0].main}}</div>
                </div>
+              
+               <div class="favourite-city">
+                <button type="button" v-on:click="search(weather)">Add To Favourite City</button>
+              </div>
+              
                
+
              </div>
     </main>
   </div>
 </template>
 
 <script>
+import AddToFavourite from './components/AddToFavourite.vue'
+
 
 
 export default {
   name: 'App',
+
+
+ 
   data () {
     return {
       api_key:'e71c2b2a7d6700a136b1ccc4cb362cc1',
@@ -63,9 +74,29 @@ export default {
 
     }
 
-  }
+  },
+  FavouriteCity(){
+  
+let city = ['Pune'];
+
+console.log(city.length);
+
+}
+
+ 
+
+
+
+ 
+
+
+  
+  
+    
   
 }
+
+
 
 
 
@@ -172,6 +203,7 @@ main {
 }
 
 
+
 </style>
 
 Vue.component('favorite', {
@@ -208,22 +240,6 @@ var app = new Vue({
    el: 'body'
 });
 
-
-function AddToFavorites City(siteTitle, siteURL)  
-{  
-    if (window.sidebar)  
-    {  
-        window.sidebar.addPanel(siteTitle, siteURL,"https://api.openweathermap.org/data/2.5/");  
-    }  
-    else if(document.all)  
-    {  
-        window.external.AddFavoriteCity(siteURL, siteTitle);  
-    }  
-    else if(window.opera && window.print)  
-    {  
-        return true;  
-    }  
-}  
 
 
 
