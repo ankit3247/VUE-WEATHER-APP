@@ -15,9 +15,17 @@
                  <div class="weather">{{weather.weather[0].main}}</div>
                </div>
               
-               <div class="favourite-city">
-                <button type="button" v-on:click="search(weather)">Add To Favourite City</button>
-              </div>
+                <!-- <div class="favourite-city"> 
+                <button type="button" class="btn btn-primary" v-on:click="addcity">Add To Favourite City</button> 
+                </div>  -->
+
+                <add-to-favourite />
+              
+                
+                
+                
+                
+               
               
                
 
@@ -27,12 +35,15 @@
 </template>
 
 <script>
-import AddToFavourite from './components/AddToFavourite.vue'
+import AddToFavourite from './components/AddToFavourite.vue';
+
 
 
 
 export default {
+  components: { AddToFavourite },
   name: 'App',
+  
 
 
  
@@ -72,14 +83,22 @@ export default {
 
       return `${day} ${date} ${month} ${year}`;
 
-    }
+    },
+
+   
+    
+
+   
 
   },
-  FavouriteCity(){
+  FavouriteCity(){ 
   
-let city = ['Pune'];
+let city = ['Pune']; 
 
-console.log(city.length);
+ console.log(city.length);
+
+  
+
 
 }
 
@@ -116,7 +135,7 @@ body {
 }
 
 #app {
-  background-image:url('https://cdn.dribbble.com/users/925716/screenshots/3333720/attachments/722375/night.png?compress=1&resize=400x300');
+  background-image:url('https://cdn.pixabay.com/photo/2015/03/26/09/47/sky-690293__480.jpg');
   background-size:cover;
   background-position: bottom;
   transition: 0.4s;
@@ -242,7 +261,7 @@ var app = new Vue({
 
 
 
-
+<!-- test 123 -->
 
 <!-- test 1234 -->
 
