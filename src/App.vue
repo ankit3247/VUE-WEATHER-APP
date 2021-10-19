@@ -15,11 +15,16 @@
                  <div class="weather">{{weather.weather[0].main}}</div>
                </div>
               
-                <!-- <div class="favourite-city"> 
-                <button type="button" class="btn btn-primary" v-on:click="addcity">Add To Favourite City</button> 
-                </div>  -->
+                <div class="favourite-city"> 
+                <button type="button" class="btn btn-primary" v-on:click="addcity">Add City!!!</button> 
+                {{message}}
+                </div>  
 
-                <add-to-favourite />
+                
+               
+              
+
+                 
               
                 
                 
@@ -35,13 +40,14 @@
 </template>
 
 <script>
-import AddToFavourite from './components/AddToFavourite.vue';
+
+
 
 
 
 
 export default {
-  components: { AddToFavourite },
+
   name: 'App',
   
 
@@ -91,35 +97,39 @@ export default {
    
 
   },
-  FavouriteCity(){ 
+
+  myApp= new Vue({
+    el:'#app',
+    data:{
+      message:'Favourite City'
+    },
+    methods:{
+      addcity:function(){
+        alert('Favourite City');
+      }
+    },
+  }),
+
+
+
+
+
+
+
   
-let city = ['Pune']; 
-
- console.log(city.length);
 
   
 
 
-}
+  
+
+
 
  
 
 
 
  
-
-
-  
-  
-    
-  
-}
-
-
-
-
-
-
 
 </script>
 
